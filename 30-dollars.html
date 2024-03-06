@@ -20,13 +20,14 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // Create a 10x4 grid of buttons
+    // Create a 4x10 grid of buttons
     var buttonGrid = document.getElementById("buttonGrid");
-    for (var i = 0; i < 10; i++) {
-        for (var j = 0; j < 4; j++) {
-            var buttonNumber = i * 4 + j + 1; // Button number ranging from 1 to 40
+    for (var i = 0; i < 4; i++) {
+        for (var j = 0; j < 10; j++) {
+            var buttonNumber = i * 10 + j + 1; // Button number ranging from 1 to 40
             var button = document.createElement("button");
             button.className = "button";
+            button.id = "button" + buttonNumber; // Set id for customization
             button.innerText = "Button " + buttonNumber;
             button.onclick = createButtonClickHandler(buttonNumber);
             buttonGrid.appendChild(button);
