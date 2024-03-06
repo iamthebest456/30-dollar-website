@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sound Button Grid</title>
+<title>Customizable Sound Button Grid</title>
 <style>
     body {
         background-color: #000;
@@ -46,25 +46,63 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     var buttonGrid = document.getElementById("buttonGrid");
-    for (var i = 0; i < 4; i++) {
-        for (var j = 0; j < 10; j++) {
-            var buttonNumber = i * 10 + j + 1; 
-            var button = document.createElement("button");
-            button.className = "button";
-            button.id = "button" + buttonNumber; 
-            button.innerText = "Button " + buttonNumber;
-            button.onclick = createButtonClickHandler(buttonNumber);
-            buttonGrid.appendChild(button);
-        }
-    }
-});
 
-function createButtonClickHandler(buttonNumber) {
-    return function() {
-        var audio = new Audio("sound" + buttonNumber + ".wav");
-        audio.play();
-    };
-}
+    // Define an array of button configurations
+    var buttons = [
+        { name: "Button 1", sound: "sound1.wav" },
+        { name: "Button 2", sound: "sound2.wav" },
+        { name: "Button 3", sound: "sound3.wav" },
+        { name: "Button 4", sound: "sound4.wav" },
+        { name: "Button 5", sound: "sound5.wav" },
+        { name: "Button 6", sound: "sound6.wav" },
+        { name: "Button 7", sound: "sound7.wav" },
+        { name: "Button 8", sound: "sound8.wav" },
+        { name: "Button 9", sound: "sound9.wav" },
+        { name: "Button 10", sound: "sound10.wav" },
+        { name: "Button 11", sound: "sound11.wav" },
+        { name: "Button 12", sound: "sound12.wav" },
+        { name: "Button 13", sound: "sound13.wav" },
+        { name: "Button 14", sound: "sound14.wav" },
+        { name: "Button 15", sound: "sound15.wav" },
+        { name: "Button 16", sound: "sound16.wav" },
+        { name: "Button 17", sound: "sound17.wav" },
+        { name: "Button 18", sound: "sound18.wav" },
+        { name: "Button 19", sound: "sound19.wav" },
+        { name: "Button 20", sound: "sound20.wav" },
+        { name: "Button 21", sound: "sound21.wav" },
+        { name: "Button 22", sound: "sound22.wav" },
+        { name: "Button 23", sound: "sound23.wav" },
+        { name: "Button 24", sound: "sound24.wav" },
+        { name: "Button 25", sound: "sound25.wav" },
+        { name: "Button 26", sound: "sound26.wav" },
+        { name: "Button 27", sound: "sound27.wav" },
+        { name: "Button 28", sound: "sound28.wav" },
+        { name: "Button 29", sound: "sound29.wav" },
+        { name: "Button 30", sound: "sound30.wav" },
+        { name: "Button 31", sound: "sound31.wav" },
+        { name: "Button 32", sound: "sound32.wav" },
+        { name: "Button 33", sound: "sound33.wav" },
+        { name: "Button 34", sound: "sound34.wav" },
+        { name: "Button 35", sound: "sound35.wav" },
+        { name: "Button 36", sound: "sound36.wav" },
+        { name: "Button 37", sound: "sound37.wav" },
+        { name: "Button 38", sound: "sound38.wav" },
+        { name: "Button 39", sound: "sound39.wav" },
+        { name: "Button 40", sound: "sound40.wav" }
+    ];
+
+    // Create buttons dynamically based on the button configurations
+    buttons.forEach(function(buttonConfig) {
+        var button = document.createElement("button");
+        button.className = "button";
+        button.innerText = buttonConfig.name;
+        button.onclick = function() {
+            var audio = new Audio(buttonConfig.sound);
+            audio.play();
+        };
+        buttonGrid.appendChild(button);
+    });
+});
 </script>
 </body>
 </html>
