@@ -38,9 +38,29 @@
     .button:hover {
         background-color: #777;
     }
+
+    #stopAllButton {
+        width: 100%;
+        height: 50px;
+        background-color: red;
+        color: #fff;
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        font-family: 'Lato', sans-serif;
+        font-weight: 900;
+        font-size: 16px;
+        margin-bottom: 10px;
+        transition: background-color 0.3s;
+    }
+
+    #stopAllButton:hover {
+        background-color: #ff0000;
+    }
 </style>
 </head>
 <body>
+<button id="stopAllButton">Stop All</button>
 <div id="buttonGrid"></div>
 
 <script>
@@ -102,6 +122,19 @@ document.addEventListener("DOMContentLoaded", function() {
         };
         buttonGrid.appendChild(button);
     });
+
+    // Create the "Stop All" button
+    var stopAllButton = document.createElement("button");
+    stopAllButton.id = "stopAllButton";
+    stopAllButton.innerText = "Stop All";
+    stopAllButton.onclick = function() {
+        var audios = document.querySelectorAll("audio");
+        audios.forEach(function(audio) {
+            audio.pause();
+            audio.currentTime = 0;
+        });
+    };
+    document.body.insertBefore(stopAllButton, buttonGrid);
 });
 </script>
 </body>
