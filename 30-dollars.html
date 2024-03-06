@@ -113,6 +113,8 @@ document.addEventListener("DOMContentLoaded", function() {
         { name: "Button 40", sound: "sound40.wav" }
     ];
 
+    var audios = []; // Array to store all audio elements
+
     // Create buttons dynamically based on the button configurations
     buttons.forEach(function(buttonConfig) {
         var button = document.createElement("button");
@@ -121,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
         button.onclick = function() {
             var audio = new Audio(buttonConfig.sound);
             audio.play();
+            audios.push(audio); // Add the audio element to the array
         };
         buttonGrid.appendChild(button);
     });
@@ -130,7 +133,6 @@ document.addEventListener("DOMContentLoaded", function() {
     stopAllButton.id = "stopAllButton";
     stopAllButton.innerText = "Stop All";
     stopAllButton.onclick = function() {
-        var audios = document.querySelectorAll("audio");
         audios.forEach(function(audio) {
             audio.pause();
             audio.currentTime = 0;
