@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sound Button Grid</title>
+<style>
+    .button {
+        width: 100px;
+        height: 50px;
+        margin: 5px;
+        background-color: #ccc;
+        border: 1px solid #999;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div id="buttonGrid"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Create a 10x4 grid of buttons
+    var buttonGrid = document.getElementById("buttonGrid");
+    for (var i = 0; i < 10; i++) {
+        for (var j = 0; j < 4; j++) {
+            var buttonNumber = i * 4 + j + 1; // Button number ranging from 1 to 40
+            var button = document.createElement("button");
+            button.className = "button";
+            button.innerText = "Button " + buttonNumber;
+            button.onclick = createButtonClickHandler(buttonNumber);
+            buttonGrid.appendChild(button);
+        }
+        buttonGrid.appendChild(document.createElement("br")); // Line break after each row
+    }
+});
+
+function createButtonClickHandler(buttonNumber) {
+    return function() {
+        var audio = new Audio("sound" + buttonNumber + ".wav");
+        audio.play();
+    };
+}
+</script>
+</body>
+</html>
