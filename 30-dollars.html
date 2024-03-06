@@ -5,13 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sound Button Grid</title>
 <style>
+    body {
+        background-color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    #buttonGrid {
+        display: grid;
+        grid-template-columns: repeat(10, 100px);
+        grid-gap: 10px;
+        text-align: center;
+    }
+
     .button {
-        width: 100px;
+        width: 100%;
         height: 50px;
-        margin: 5px;
-        background-color: #ccc;
-        border: 1px solid #999;
+        background-color: #555;
+        color: #fff;
+        border: none;
+        border-radius: 15px;
         cursor: pointer;
+        font-family: 'Lato', sans-serif;
+        font-weight: 900;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: #777;
     }
 </style>
 </head>
@@ -20,19 +45,17 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // Create a 4x10 grid of buttons
     var buttonGrid = document.getElementById("buttonGrid");
     for (var i = 0; i < 4; i++) {
         for (var j = 0; j < 10; j++) {
-            var buttonNumber = i * 10 + j + 1; // Button number ranging from 1 to 40
+            var buttonNumber = i * 10 + j + 1; 
             var button = document.createElement("button");
             button.className = "button";
-            button.id = "button" + buttonNumber; // Set id for customization
+            button.id = "button" + buttonNumber; 
             button.innerText = "Button " + buttonNumber;
             button.onclick = createButtonClickHandler(buttonNumber);
             buttonGrid.appendChild(button);
         }
-        buttonGrid.appendChild(document.createElement("br")); // Line break after each row
     }
 });
 
