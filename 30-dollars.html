@@ -12,6 +12,7 @@
         align-items: center;
         height: 100vh;
         margin: 0;
+        position: relative; /* Ensure relative positioning for absolute child */
     }
 
     #buttonGrid {
@@ -40,7 +41,10 @@
     }
 
     #stopAllButton {
-        width: 100%;
+        position: absolute; /* Position on top of everything */
+        top: 20px; /* Adjust top position as needed */
+        right: 20px; /* Adjust right position as needed */
+        width: 100px;
         height: 50px;
         background-color: red;
         color: #fff;
@@ -50,7 +54,6 @@
         font-family: 'Lato', sans-serif;
         font-weight: 900;
         font-size: 16px;
-        margin-bottom: 10px;
         transition: background-color 0.3s;
     }
 
@@ -60,7 +63,6 @@
 </style>
 </head>
 <body>
-<button id="stopAllButton">Stop All</button>
 <div id="buttonGrid"></div>
 
 <script>
@@ -75,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { name: "Bruh", sound: "movie_1.mp3" },
         { name: "wowowow", sound: "wowowow_XwLbdBS.mp3" },
         { name: "Goofy Yawn", sound: "funny-loud-ignore-my-yawn.mp3" },
-        { name: "Samsung Notification", sound: "samsung-notification-sound-bass-boosted.mp3" },
+        { name: "Samsung Notify", sound: "samsung-notification-sound-bass-boosted.mp3" },
         { name: "Noice", sound: "-click-nice_3.mp3" },
         { name: "Whistle", sound: "movie_1 (1).mp3" },
         { name: "Pufferfish", sound: "aaughmp3.mp3" },
@@ -89,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
         { name: "Old Car Horn", sound: "old-car-horn.mp3" },
         { name: "Piano Riff", sound: "piano-riff-short-made-with-Voicemod.mp3" },
         { name: "Suspense", sound: "sound-effect-suspense-strike.mp3" },
-        { name: "Realization", sound: "wowowowow-made-with-Voicemod.mp3" },
+        { name: "Realize", sound: "wowowowow-made-with-Voicemod.mp3" },
         { name: "Button 22", sound: "sound22.wav" },
         { name: "Button 23", sound: "sound23.wav" },
         { name: "Button 24", sound: "sound24.wav" },
@@ -134,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function() {
             audio.currentTime = 0;
         });
     };
-    document.body.insertBefore(stopAllButton, buttonGrid);
+    document.body.appendChild(stopAllButton); // Append to body
 });
 </script>
 </body>
