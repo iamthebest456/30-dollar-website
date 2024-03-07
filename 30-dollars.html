@@ -112,26 +112,17 @@ document.addEventListener("DOMContentLoaded", function() {
         { name: "Toasty!", sound: "mk3-04245.mp3" },
         { name: "I'm In Danger", sound: "im-in-danger-meme-template.mp3" },
         { name: "WOW!", sound: "anime-wow-sound-effect-mp3cut.mp3" },
-        { name: "Hog Rider", sound: "171a8e2e-4c95-45b9-abc5-83ed81442bcf.mp3" },
-        { name: "Knocked", sound: "tmp_7901-951678082.mp3" },
-        { name: "Gangstas Paradise", sound: "gangstas-paradise-scream-sound-effect-1.mp3" },
-        { name: "The Pizza", sound: "ayo_BLluQdm.mp3" },
-        { name: "Indian", sound: "70360589-c856-4ad8-94ed-776c988776c5.mp3" },
-        { name: "Default Dance", sound: "939f1050-5855-470d-9630-5637dd080435.mp3" },
-        { name: "Sigma", sound: "musica-de-sigma-estourado.mp3" },
-        { name: "Outro Song", sound: "outro-song_oqu8zAg.mp3" },
-        { name: "Lagging", sound: "loading-lost-connection-green-screen-with-sound-effect-2_K8HORkT.mp3" },
-        { name: "Bad To The Bone", sound: "bad-to-the-bone-meme.mp3" },
-        { name: "SODA!", sound: "yt1s_qwrCPVf.mp3" },
-        { name: "ZAZAZA", sound: "Recording_5.m4a" },
-        { name: "Ye Boi", sound: "ye-boi.mp3" },
-        { name: "PLEASE!", sound: "Recording_6.m4a" },
-        { name: "Skibidi Toilet", sound: "audiomass-output.mp3" },
-        { name: "Fantum Tuxe", sound: "fatum-tuxe.mp3" },
-        { name: "Bomba clatt", sound: "bombaclatt.mp3" },
-        { name: "Nestle Crunch", sound: "thats-why-i-love-nestle-crunch-vine.mp3" },
-        { name: "Metal Bar 🤓", sound: "metal-pipe-earrape.mp3" },
-        { name: "GYATT!", sound: "gyatt(1).mp3" }
+        // Additional buttons
+        { name: "Button 1", sound: "button1_sound.mp3" },
+        { name: "Button 2", sound: "button2_sound.mp3" },
+        { name: "Button 3", sound: "button3_sound.mp3" },
+        { name: "Button 4", sound: "button4_sound.mp3" },
+        { name: "Button 5", sound: "button5_sound.mp3" },
+        { name: "Button 6", sound: "button6_sound.mp3" },
+        { name: "Button 7", sound: "button7_sound.mp3" },
+        { name: "Button 8", sound: "button8_sound.mp3" },
+        { name: "Button 9", sound: "button9_sound.mp3" },
+        { name: "Button 10", sound: "button10_sound.mp3" }
     ];
 
     var audios = []; // Array to store all audio elements
@@ -154,12 +145,24 @@ document.addEventListener("DOMContentLoaded", function() {
     stopAllButton.id = "stopAllButton";
     stopAllButton.innerText = "Stop All";
     stopAllButton.onclick = function() {
+        stopAllSounds();
+    };
+    document.body.appendChild(stopAllButton); // Append to body
+
+    // Function to stop all sounds
+    function stopAllSounds() {
         audios.forEach(function(audio) {
             audio.pause();
             audio.currentTime = 0;
         });
-    };
-    document.body.appendChild(stopAllButton); // Append to body
+    }
+
+    // Event listener for key press
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "2") {
+            stopAllSounds();
+        }
+    });
 });
 </script>
 </body>
